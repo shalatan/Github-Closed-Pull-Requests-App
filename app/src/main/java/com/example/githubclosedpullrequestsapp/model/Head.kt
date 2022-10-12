@@ -5,5 +5,5 @@ data class Head(
     val ref: String,
     val repo: RepoX,
     val sha: String,
-    val user: UserXX
+    val user: User
 )

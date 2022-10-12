@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pullResponseItem"
+            type="com.example.githubclosedpullrequestsapp.model.GithubPullRequestResponseItem" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="16dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{pullResponseItem.user.avatar_url}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="username"
+                android:text="@{pullResponseItem.user.login}"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/user_avatar"
+                app:layout_constraintStart_toStartOf="@id/user_avatar"
+                app:layout_constraintTop_toBottomOf="@id/user_avatar" />
+
+            <TextView
+                android:id="@+id/raw_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="title: "
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/user_avatar"
+                app:layout_constraintTop_toTopOf="@id/user_avatar" />
+
+            <TextView
+                android:id="@+id/commit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="updated ui with knowledge"
+                android:text="@{pullResponseItem.title}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/raw_title"
+                app:layout_constraintStart_toEndOf="@+id/raw_title" />
+
+            <TextView
+                android:id="@+id/raw_created_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="created on: "
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/user_avatar"
+                app:layout_constraintTop_toBottomOf="@id/raw_title" />
+
+            <TextView
+                android:id="@+id/commit_created_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="12/09/2022"
+                android:text="@{pullResponseItem.created_at}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/raw_created_date"
+                app:layout_constraintStart_toEndOf="@+id/raw_created_date" />
+
+            <TextView
+                android:id="@+id/raw_closed_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="closed on: "
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/user_avatar"
+                app:layout_constraintTop_toBottomOf="@id/raw_created_date" />
+
+            <TextView
+                android:id="@+id/commit_closed_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="12/09/2022"
+                android:text="@{pullResponseItem.closed_at}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/raw_closed_date"
+                app:layout_constraintStart_toEndOf="@+id/raw_closed_date" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

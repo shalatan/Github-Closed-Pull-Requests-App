@@ -1,6 +1,6 @@
 package com.example.githubclosedpullrequestsapp.di
 
-import com.example.githubclosedpullrequestsapp.`package`.Constants
+import com.example.githubclosedpullrequestsapp.utils.Constants
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.example.githubclosedpullrequestsapp.network.GithubApiService
 import dagger.Module
